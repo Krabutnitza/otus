@@ -1,9 +1,7 @@
-package CreateUser;
+package PetTests;
 
 import api.PetApi;
 import api.PetResponse;
-import api.UserResponse;
-import dto.PetDto;
 import helper.CreatePetApi;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
@@ -19,6 +17,8 @@ public class DeletePetTest {
     @Test
     @DisplayName("Удаление стандартного питомца по айди")
     public void deletePet() {
+        // Создаем питомца, потом его удаляем и проверяем поля
+
         PetApi petApi = new PetApi();
         CreatePetApi pet = new CreatePetApi();
         pet.createPet();
@@ -38,8 +38,13 @@ public class DeletePetTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("Получение негативного кода ответа на запрос")
     public void wrongStatusCode() {
+        // Пытаемся удалить не существующий айдишник (питомца), получаем ошибку
 
+        PetApi petApi = new PetApi();
+
+        petApi.deleltePet(999)
+                .statusCode(404);
     }
 }

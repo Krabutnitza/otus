@@ -1,4 +1,4 @@
-package CreateUser;
+package UserTests;
 
 import api.UserResponse;
 import dto.UserDto;
@@ -16,6 +16,8 @@ public class CreateUserTest {
     @Test
     @DisplayName("Создание пользователя и проверка всех полей (тест с занятия)")
     public void createUser() {
+        // Создаем юзера, проверяем поля
+
         UserApi userApi = new UserApi();
         UserDto user = UserDto.builder()
                 .email("liza@mail.ru")

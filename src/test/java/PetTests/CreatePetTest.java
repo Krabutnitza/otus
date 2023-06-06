@@ -1,4 +1,4 @@
-package CreateUser;
+package PetTests;
 
 import api.PetApi;
 import dto.Category;
@@ -20,6 +20,7 @@ public class CreatePetTest {
     @Test
     @DisplayName("Создание питомца в магазине и проверка полей")
     public void createPetTest() {
+        // Создаем питомца, проверяем все поля
         PetApi petApi = new PetApi();
 
         Category category = new Category();
@@ -66,6 +67,8 @@ public class CreatePetTest {
     @Test
     @DisplayName("Создание неправильных полей и проверка на ошибку")
     public void checkIncorrectFields() {
+        // Создаем питомца с "не теми" полями, что по идее должны быть, проверяем что они действительно не те
+
         PetApi petApi = new PetApi();
 
         Category category = new Category();
