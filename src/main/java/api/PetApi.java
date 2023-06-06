@@ -17,24 +17,25 @@ public class PetApi {
                 .baseUri(petShopUrl)
                 .contentType(ContentType.JSON);
     }
+
     public ValidatableResponse createPet(PetDto petDto) {
         return given(respec)
-                    .log().all()
-                    .body(petDto)
+                .log().all()
+                .body(petDto)
                 .when()
-                    .post(PET)
+                .post(PET)
                 .then()
-                    .log().all();
+                .log().all();
     }
 
     public ValidatableResponse deleltePet(int petId) {
         return given(respec)
-                    .log().all()
-                    .basePath("/pet/{petId}")
-                    .pathParams("petId", petId)
+                .log().all()
+                .basePath("/pet/{petId}")
+                .pathParams("petId", petId)
                 .when()
-                    .delete()
+                .delete()
                 .then()
-                    .log().all();
+                .log().all();
     }
 }

@@ -22,21 +22,21 @@ public class CreatePetApi {
         PetApi petApi = new PetApi();
 
         Category category = new Category();
-        category.setId(12l);
+        category.setId(12L);
         category.setName("Perchik");
 
-        List<String> photoUrls = new ArrayList();
+        List<String> photoUrls = new ArrayList<>();
         photoUrls.add("https://www.india.com/wp-content/uploads/2015/10/538.jpg");
 
         Tag tag = new Tag();
-        tag.setId(121l);
+        tag.setId(121L);
         tag.setName("Perchik");
         List<Tag> tags = new ArrayList<>();
         tags.add(tag);
 
         PetDto pet = PetDto.builder()
                 .category(category)
-                .id(121l)
+                .id(121L)
                 .name("Perchik")
                 .photoUrls(photoUrls)
                 .status("available")
@@ -44,6 +44,6 @@ public class CreatePetApi {
                 .build();
 
         petApi.createPet(pet)
-        .statusCode(200);
+                .statusCode(200);
     }
 }

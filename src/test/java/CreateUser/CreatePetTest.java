@@ -23,21 +23,21 @@ public class CreatePetTest {
         PetApi petApi = new PetApi();
 
         Category category = new Category();
-        category.setId(12l);
+        category.setId(12L);
         category.setName("Perchik");
 
-        List<String> photoUrls = new ArrayList();
+        List<String> photoUrls = new ArrayList<>();
         photoUrls.add("https://www.india.com/wp-content/uploads/2015/10/538.jpg");
 
         Tag tag = new Tag();
-        tag.setId(121l);
+        tag.setId(121L);
         tag.setName("Perchik");
         List<Tag> tags = new ArrayList<>();
         tags.add(tag);
 
         PetDto pet = PetDto.builder()
                 .category(category)
-                .id(121l)
+                .id(121L)
                 .name("Perchik")
                 .photoUrls(photoUrls)
                 .status("available")
@@ -45,7 +45,7 @@ public class CreatePetTest {
                 .build();
 
         petApi.createPet(pet)
-        .statusCode(200);
+                .statusCode(200);
 
         ValidatableResponse response = petApi.createPet(pet)
                 .statusCode(HttpStatus.SC_OK);
@@ -69,21 +69,21 @@ public class CreatePetTest {
         PetApi petApi = new PetApi();
 
         Category category = new Category();
-        category.setId(11l);
+        category.setId(11L);
         category.setName("Boris");
 
-        List<String> photoUrls = new ArrayList();
+        List<String> photoUrls = new ArrayList<>();
         photoUrls.add("https://www.india.com/wp-content/uploads/2015/10/538.jp");
 
         Tag tag = new Tag();
-        tag.setId(123l);
+        tag.setId(123L);
         tag.setName("Barsik");
         List<Tag> tags = new ArrayList<>();
         tags.add(tag);
 
         PetDto pet = PetDto.builder()
                 .category(category)
-                .id(122l)
+                .id(122L)
                 .name("Marsik")
                 .photoUrls(photoUrls)
                 .status("notAvailable")
@@ -92,19 +92,19 @@ public class CreatePetTest {
 
         petApi.createPet(pet)
                 .statusCode(200);
-    ValidatableResponse response = petApi.createPet(pet)
-            .statusCode(HttpStatus.SC_OK);
+        ValidatableResponse response = petApi.createPet(pet)
+                .statusCode(HttpStatus.SC_OK);
 
-    PetDto petResponse = response.extract().body().as(PetDto.class);
+        PetDto petResponse = response.extract().body().as(PetDto.class);
 
         Assertions.assertAll("Check create pet", () ->
-    assertNotEquals(12, petResponse.getCategory().getId(), "Incorrect category id"), () ->
-    assertNotEquals("Perchik", petResponse.getCategory().getName(), "Incorrect category name"), () ->
-    assertNotEquals(121, petResponse.getId(), "Incorrect pet id"), () ->
-    assertNotEquals("Perchik", petResponse.getName(), "Incorrect pet name"), () ->
-    assertNotEquals("[https://www.india.com/wp-content/uploads/2015/10/538.jpg]", petResponse.getPhotoUrls().toString(), "Incorrect photo url"), () ->
-    assertNotEquals("available", petResponse.getStatus(), "Incorrect status"), () ->
-    assertNotEquals(121, petResponse.getTags().get(0).getId(), "Incorrect tag id"), () ->
-    assertNotEquals("Perchik", petResponse.getTags().get(0).getName(), "Incorrect tag name"));
+                assertNotEquals(12, petResponse.getCategory().getId(), "Incorrect category id"), () ->
+                assertNotEquals("Perchik", petResponse.getCategory().getName(), "Incorrect category name"), () ->
+                assertNotEquals(121, petResponse.getId(), "Incorrect pet id"), () ->
+                assertNotEquals("Perchik", petResponse.getName(), "Incorrect pet name"), () ->
+                assertNotEquals("[https://www.india.com/wp-content/uploads/2015/10/538.jpg]", petResponse.getPhotoUrls().toString(), "Incorrect photo url"), () ->
+                assertNotEquals("available", petResponse.getStatus(), "Incorrect status"), () ->
+                assertNotEquals(121, petResponse.getTags().get(0).getId(), "Incorrect tag id"), () ->
+                assertNotEquals("Perchik", petResponse.getTags().get(0).getName(), "Incorrect tag name"));
     }
 }

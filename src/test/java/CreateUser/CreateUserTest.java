@@ -36,8 +36,8 @@ public class CreateUserTest {
         UserResponse userResponse = response.extract().body().as(UserResponse.class);
 
         Assertions.assertAll("Check create user", () ->
-        assertEquals("unknown", userResponse.getType(), "Incorrect type"), () ->
-        assertEquals("500", userResponse.getMessage(), "Incorrect message"), () ->
-        assertEquals(200, userResponse.getCode(), "Incorrect code"));
+                assertEquals("unknown", userResponse.getType(), "Incorrect type"), () ->
+                assertEquals("500", userResponse.getMessage(), "Incorrect message"), () ->
+                assertEquals(200, userResponse.getCode(), "Incorrect code"));
     }
 }
