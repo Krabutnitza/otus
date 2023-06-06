@@ -30,9 +30,10 @@ public class PetApi {
     public ValidatableResponse deleltePet(int petId) {
         return given(respec)
                     .log().all()
-                    .formParam("petId", petId)
+                    .basePath("/pet/{petId}")
+                    .pathParams("petId", petId)
                 .when()
-                    .delete(PET, petId)
+                    .delete()
                 .then()
                     .log().all();
     }
