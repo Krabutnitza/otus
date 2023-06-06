@@ -1,4 +1,7 @@
-package UserTests;
+package usertests;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import api.UserResponse;
 import dto.UserDto;
@@ -8,9 +11,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import api.UserApi;
-
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreateUserTest {
     @Test

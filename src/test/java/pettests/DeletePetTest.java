@@ -1,4 +1,7 @@
-package PetTests;
+package pettests;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import api.PetApi;
 import api.PetResponse;
@@ -8,10 +11,6 @@ import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class DeletePetTest {
     @Test

@@ -4,17 +4,9 @@ import api.PetApi;
 import dto.Category;
 import dto.PetDto;
 import dto.Tag;
-import io.restassured.response.ValidatableResponse;
-import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class CreatePetApi {
     // Создание стандартного питомца

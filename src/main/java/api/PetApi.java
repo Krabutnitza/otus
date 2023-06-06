@@ -1,11 +1,12 @@
 package api;
 
+import static io.restassured.RestAssured.given;
+
 import dto.PetDto;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
-import static io.restassured.RestAssured.given;
 
 public class PetApi {
     private static final String petShopUrl = "https://petstore.swagger.io/v2";
