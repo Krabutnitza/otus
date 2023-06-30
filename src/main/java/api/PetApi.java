@@ -3,19 +3,20 @@ package api;
 import static io.restassured.RestAssured.given;
 
 import dto.PetDto;
+import helper.TestPreparation;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 
 public class PetApi {
-    private static final String petShopUrl = "https://petstore.swagger.io/v2";
+    private TestPreparation testPrep = new TestPreparation();
     private static final String PET = "/pet";
     private RequestSpecification respec;
 
     public PetApi() {
         respec = given()
-                .baseUri(petShopUrl)
+                .baseUri(testPrep.getBaseUrl())
                 .contentType(ContentType.JSON);
     }
 
@@ -29,7 +30,7 @@ public class PetApi {
                 .log().all();
     }
 
-    public ValidatableResponse deleltePet(int petId) {
+    public ValidatableResponse deleltePet(Long petId) {
         return given(respec)
                 .log().all()
                 .basePath("/pet/{petId}")

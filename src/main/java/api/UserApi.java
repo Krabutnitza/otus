@@ -3,19 +3,20 @@ package api;
 import static io.restassured.RestAssured.given;
 
 import dto.UserDto;
+import helper.TestPreparation;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 
 public class UserApi {
-    private static final String petShopUrl = "https://petstore.swagger.io/v2";
+    private TestPreparation testPrep = new TestPreparation();
     private static final String USER = "/user";
     private RequestSpecification respec;
 
     public UserApi() {
         respec = given()
-                .baseUri(petShopUrl)
+                .baseUri(testPrep.getBaseUrl())
                 .contentType(ContentType.JSON);
     }
 

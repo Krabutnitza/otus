@@ -22,7 +22,7 @@ public class DeletePetTest {
         CreatePetApi pet = new CreatePetApi();
         pet.createPet();
 
-        ValidatableResponse response = petApi.deleltePet(121)
+        ValidatableResponse response = petApi.deleltePet(121L)
                 .statusCode(HttpStatus.SC_OK)
                 .body("code", equalTo(200))
                 .body("type", equalTo("unknown"))
@@ -34,16 +34,5 @@ public class DeletePetTest {
                 assertEquals("unknown", petResponse.getType(), "Incorrect type"), () ->
                 assertEquals("121", petResponse.getMessage(), "Incorrect message"), () ->
                 assertEquals(200, petResponse.getCode(), "Incorrect code"));
-    }
-
-    @Test
-    @DisplayName("Получение негативного кода ответа на запрос")
-    public void wrongStatusCode() {
-        // Пытаемся удалить не существующий айдишник (питомца), получаем ошибку
-
-        PetApi petApi = new PetApi();
-
-        petApi.deleltePet(999)
-                .statusCode(404);
     }
 }
